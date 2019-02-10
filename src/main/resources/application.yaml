@@ -1,0 +1,14 @@
+# Most of the logging properties defined here are are automatically transferred from the Spring Environment to System properties, then accessible on logback-spring.xml
+# These properties have its System property name defined on the comments
+# Docs: https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-logging.html#boot-features-custom-log-configuration
+logging:
+  path: logs # Logging directory - System name: LOG_PATH
+  file:
+    name: application # Logging file name
+    max-size: 1GB # Maximum log file size (update this value to 1KB to see the rolling policy working)- System name: LOG_FILE_MAX_SIZE
+    max-history: 10 # Maximum number of archive log files to keep - System name: LOG_FILE_MAX_HISTORY
+  pattern:
+    console: "%black(%d{ISO8601}) %highlight(%-5level) [%blue(%t)] %yellow(%C{1.}): %msg%n%throwable" # System name: CONSOLE_LOG_PATTERN
+    file: "%d %p [%t] %C{1.}: %m%n" # System name: FILE_LOG_PATTERN
+  archived:
+    total-size-cap: 10GB # Maximum size allocated to logging files
