@@ -18,6 +18,7 @@
     <properties>
         <java.version>1.8</java.version>
         <dockerfile-maven-version>1.4.10</dockerfile-maven-version>
+        <maven.deploy.skip>true</maven.deploy.skip>
     </properties>
 
     <dependencies>
@@ -63,27 +64,46 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+            <!-- Setup suggestions: https://github.com/spotify/dockerfile-maven/issues/10 -->
             <plugin>
                 <groupId>com.spotify</groupId>
                 <artifactId>dockerfile-maven-plugin</artifactId>
                 <version>${dockerfile-maven-version}</version>
                 <executions>
                     <execution>
-                        <id>default</id>
+                        <id>build-container</id>
+                        <phase>package</phase>
                         <goals>
                             <goal>build</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>tag-push-version</id>
+                        <phase>deploy</phase>
+                        <goals>
+                            <goal>tag</goal>
                             <goal>push</goal>
                         </goals>
+                        <configuration>
+                            <tag>${project.version}</tag>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>tag-push-latest</id>
+                        <phase>deploy</phase>
+                        <goals>
+                            <goal>tag</goal>
+                            <goal>push</goal>
+                        </goals>
+                        <configuration>
+                            <tag>latest</tag>
+                        </configuration>
                     </execution>
                 </executions>
                 <configuration>
-                        <!--<serverId>docker-hub</serverId>-->
-                    <!--<repository>https://index.docker.io/v1/</repository>-->
-
-                    <repository>lbcoutinho/docker-demo-api</repository>
-                    <tag>${project.version}</tag>
-                    <!--<useMavenSettingsForAuth>true</useMavenSettingsForAuth>-->
+                    <repository>lbcoutinho/${project.artifactId}</repository>
                     <buildArgs>
+                        <WORK_DIR>/app</WORK_DIR>
                         <JAR_FILE>${project.build.finalName}.jar</JAR_FILE>
                     </buildArgs>
                 </configuration>
