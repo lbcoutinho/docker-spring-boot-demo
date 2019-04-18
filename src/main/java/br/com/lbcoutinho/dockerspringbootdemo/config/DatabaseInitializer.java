@@ -1,7 +1,7 @@
-package br.com.lbcoutinho.demodockerapi.config;
+package br.com.lbcoutinho.dockerspringbootdemo.config;
 
-import br.com.lbcoutinho.demodockerapi.model.Customer;
-import br.com.lbcoutinho.demodockerapi.repository.CustomerRepository;
+import br.com.lbcoutinho.dockerspringbootdemo.model.Customer;
+import br.com.lbcoutinho.dockerspringbootdemo.repository.CustomerRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;

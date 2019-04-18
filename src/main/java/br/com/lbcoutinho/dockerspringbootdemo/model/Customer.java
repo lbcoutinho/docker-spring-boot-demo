@@ -1,4 +1,4 @@
-package br.com.lbcoutinho.demodockerapi.model;
+package br.com.lbcoutinho.dockerspringbootdemo.model;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

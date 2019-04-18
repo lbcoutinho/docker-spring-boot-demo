@@ -1,13 +1,13 @@
-package br.com.lbcoutinho.demodockerapi;
+package br.com.lbcoutinho.dockerspringbootdemo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DockerDemoApiApplication {
+public class DockerSpringBootDemoApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DockerDemoApiApplication.class, args);
+		SpringApplication.run(DockerSpringBootDemoApplication.class, args);
 	}
 
 }

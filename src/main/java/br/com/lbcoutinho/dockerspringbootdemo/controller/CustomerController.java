@@ -1,7 +1,7 @@
-package br.com.lbcoutinho.demodockerapi.controller;
+package br.com.lbcoutinho.dockerspringbootdemo.controller;
 
-import br.com.lbcoutinho.demodockerapi.model.Customer;
-import br.com.lbcoutinho.demodockerapi.repository.CustomerRepository;
+import br.com.lbcoutinho.dockerspringbootdemo.model.Customer;
+import br.com.lbcoutinho.dockerspringbootdemo.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
